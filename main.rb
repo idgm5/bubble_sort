@@ -1,5 +1,4 @@
 test = [9,4,3]
-test1 = [ "hello", "hi", "bubble", "bye", "yes", "go"]
 
 def bubble_sort(array)
     (array.length).times do |i|
@@ -26,4 +25,7 @@ def bubble_sort_by(array)
     return array
 end
 
-print bubble_sort_by(test1)
+string_array_sort = bubble_sort_by(["hi","hello","hey"]) do |left,right|
+                      left.length - right.length
+                    end
+print string_array_sort
