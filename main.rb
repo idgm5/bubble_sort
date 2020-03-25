@@ -1,17 +1,27 @@
 def bubble_sort(array)
   array.length.times do
+    sorted = true
     (array.length - 1).times do |i|
-      array[i], array[i + 1] = array[i + 1], array[i] if array[i] > array[i + 1]
+      if array[i] > array[i + 1]
+        array[i], array[i + 1] = array[i + 1], array[i]
+        sorted = false
+      end
     end
+    break if sorted
   end
   array
 end
 
 def bubble_sort_by(array)
   array.length.times do
+    sorted = true
     (array.length - 1).times do |i|
-      array[i], array[i + 1] = array[i + 1], array[i] if array[i].length > array[i + 1].length
+      if yield(array[i],array[i + 1]) > 0
+        array[i], array[i + 1] = array[i + 1], array[i]
+        sorted = false
+      end
     end
+    break if sorted
   end
   array
 end
